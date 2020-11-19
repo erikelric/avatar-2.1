@@ -1,1 +1,1 @@
-# avatar-2.1
+# AVATAR
