@@ -14,6 +14,7 @@ function preload() {
   soundFormats("wav")
   mySound[0] = loadSound("assets/1");
   mySound[1] = loadSound("assets/2");
+  mySound[2] = loadSound("assets/3");
 }
 
 function setup() {
@@ -25,18 +26,22 @@ function setup() {
   angleMode(DEGREES);
 
 //This section is meant to activate the voice recordings
-  drawButton[0] = createButton("Activate Voice Line 1")
+  drawButton[0] = createButton("Activate Phase 1")
   drawButton[0].mousePressed(voiceLine1);
-  drawButton[0].position(350, 300)
+  drawButton[0].position(350, 300);
 
-  drawButton[1] = createButton("Activate Voice Line 2")
+  drawButton[1] = createButton("Activate Phase 2")
   drawButton[1].mousePressed(voiceLine2);
-  drawButton[1].position(350, 350)
+  drawButton[1].position(350, 350);
+
+  drawButton[2] = createButton("Activate Phase 3")
+  drawButton[2].mousePressed(voiceLine3);
+  drawButton[2].position(350, 400);
 
 //This section allows the canvas to initialize
-  drawButton[2] = createButton("CLICK HERE TO INITIATE THE AI")
-  drawButton[2].mousePressed(startSketch);
-  drawButton[2].position(300, 650);
+  drawButton[10] = createButton("CLICK HERE TO INITIATE THE AI")
+  drawButton[10].mousePressed(startSketch);
+  drawButton[10].position(300, 650);
 
 }
 
@@ -76,10 +81,10 @@ function voiceLine1() {
 
   if(!mySound[0].isPlaying()){
     mySound[0].play();
-    drawButton.html("Deactivate")
+    drawButton[0].html("Deactivate")
   } else {
     mySound[0].pause();
-    drawButton.html("Activate")
+    drawButton[0].html("Activate Phase 1")
   }
 
 }
@@ -94,11 +99,23 @@ function voiceLine2() {
 
   if(!mySound[1].isPlaying()){
     mySound[1].play();
-    drawButton.html("Deactivate")
+    drawButton[1].html("Deactivate")
   } else {
     mySound[1].pause();
-    drawButton.html("Activate")
+    drawButton[1].html("Activate Phase 2")
   }
+}
+
+function voiceLine3() {
+
+  if(!mySound[2].isPlaying()){
+    mySound[2].play();
+    drawButton[2].html("Deactivate")
+  } else {
+    mySound[2].pause();
+    drawButton[2].html("Activate Phase 3")
+  }
+
 }
 
 function mousePressed() { //tap between eyebrows to change expression
