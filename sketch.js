@@ -5,6 +5,14 @@ let angleEyebrow1 = 10;
 let angleEyebrow2 = -10;
 let bamYes = false;
 let sketchStarted = false;
+let mySound = [];
+
+
+function preload() {
+  soundFormats("wav")
+  mySound = loadSound("assets/1");
+  mySound = loadSound("assets/2");
+}
 
 function setup() {
 
@@ -14,11 +22,19 @@ function setup() {
   cnv.position(x, y);
   angleMode(DEGREES);
 
+//This section is meant to activate the voice recordings
+  var drawButton = createButton("Voice Line 1")
+  drawButton.mousePressed(voiceLine1);
+  drawButton.position(350, 300)
 
-  createButton("CLICK HERE TO INITIATE THE AI").mousePressed(startSketch);
+  var drawButton = createButton("Voice Line 2")
+  drawButton.mousePressed(voiceLine1);
+  drawButton.position(350, 350)
 
-
-
+//This section allows the canvas to initialize
+  var drawButton = createButton("CLICK HERE TO INITIATE THE AI")
+  drawButton.mousePressed(startSketch);
+  drawButton.position(300, 650);
 
 }
 
@@ -50,6 +66,12 @@ function draw() {
   }
 
 
+
+}
+
+function voiceLine1() {
+
+  mySound.play();
 
 }
 
@@ -136,7 +158,9 @@ function drawEyebrow2(rotation) {
 function drawEyes() {
 
   //EYES
-  fill(130, 224, 239);
+  fill(
+191, 255, 255
+);
   ellipse(width * .35, width * .45, width * .15);
   ellipse(width * .65, width * .45, width * .15);
 
@@ -145,7 +169,7 @@ function drawEyes() {
 function drawPupils() {
 
   //PUPILS
-  fill(0);
+  fill(230, 255, 255);
   ellipse(width * .35, width * .45, width * .1);
   ellipse(width * .65, width * .45, width * .1);
 }
