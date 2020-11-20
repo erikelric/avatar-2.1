@@ -6,8 +6,9 @@ let angleEyebrow2 = -10;
 let bamYes = false;
 let sketchStarted = false;
 let mySound = [];
+let drawButton = [];
 
-mySound = [1, ,2]
+// mySound = [1, ,2]
 
 function preload() {
   soundFormats("wav")
@@ -24,18 +25,18 @@ function setup() {
   angleMode(DEGREES);
 
 //This section is meant to activate the voice recordings
-  let drawButton1 = createButton("Voice Line 1")
-  drawButton1.mousePressed(voiceLine1);
-  drawButton1.position(350, 300)
+  drawButton[0] = createButton("Activate Voice Line 1")
+  drawButton[0].mousePressed(voiceLine1);
+  drawButton[0].position(350, 300)
 
-  let drawButton2 = createButton("Voice Line 2")
-  drawButton2.mousePressed(voiceLine2);
-  drawButton2.position(350, 350)
+  drawButton[1] = createButton("Activate Voice Line 2")
+  drawButton[1].mousePressed(voiceLine2);
+  drawButton[1].position(350, 350)
 
 //This section allows the canvas to initialize
-  let drawButton3 = createButton("CLICK HERE TO INITIATE THE AI")
-  drawButton3.mousePressed(startSketch);
-  drawButton3.position(300, 650);
+  drawButton[2] = createButton("CLICK HERE TO INITIATE THE AI")
+  drawButton[2].mousePressed(startSketch);
+  drawButton[2].position(300, 650);
 
 }
 
@@ -70,16 +71,34 @@ function draw() {
 
 }
 
+//This section is where the voice lines are stored as functions
 function voiceLine1() {
 
-  mySound[0].play();
+  if(!mySound[0].isPlaying()){
+    mySound[0].play();
+    drawButton.html("Deactivate")
+  } else {
+    mySound[0].pause();
+    drawButton.html("Activate")
+  }
 
 }
 
 function voiceLine2() {
 
-  mySound[1].play();
+// for (let i = 0; i <mySound.length; i++) {
+//   if (mySound[i].isPLaying()){
+//     mySound[i].stop();
+//   }
+// }
 
+  if(!mySound[1].isPlaying()){
+    mySound[1].play();
+    drawButton.html("Deactivate")
+  } else {
+    mySound[1].pause();
+    drawButton.html("Activate")
+  }
 }
 
 function mousePressed() { //tap between eyebrows to change expression
