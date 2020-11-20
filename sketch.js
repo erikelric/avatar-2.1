@@ -7,11 +7,12 @@ let bamYes = false;
 let sketchStarted = false;
 let mySound = [];
 
+mySound = [1, ,2]
 
 function preload() {
   soundFormats("wav")
-  mySound = loadSound("assets/1");
-  mySound = loadSound("assets/2");
+  mySound[0] = loadSound("assets/1");
+  mySound[1] = loadSound("assets/2");
 }
 
 function setup() {
@@ -23,18 +24,18 @@ function setup() {
   angleMode(DEGREES);
 
 //This section is meant to activate the voice recordings
-  var drawButton = createButton("Voice Line 1")
-  drawButton.mousePressed(voiceLine1);
-  drawButton.position(350, 300)
+  let drawButton1 = createButton("Voice Line 1")
+  drawButton1.mousePressed(voiceLine1);
+  drawButton1.position(350, 300)
 
-  var drawButton = createButton("Voice Line 2")
-  drawButton.mousePressed(voiceLine1);
-  drawButton.position(350, 350)
+  let drawButton2 = createButton("Voice Line 2")
+  drawButton2.mousePressed(voiceLine2);
+  drawButton2.position(350, 350)
 
 //This section allows the canvas to initialize
-  var drawButton = createButton("CLICK HERE TO INITIATE THE AI")
-  drawButton.mousePressed(startSketch);
-  drawButton.position(300, 650);
+  let drawButton3 = createButton("CLICK HERE TO INITIATE THE AI")
+  drawButton3.mousePressed(startSketch);
+  drawButton3.position(300, 650);
 
 }
 
@@ -71,7 +72,13 @@ function draw() {
 
 function voiceLine1() {
 
-  mySound.play();
+  mySound[0].play();
+
+}
+
+function voiceLine2() {
+
+  mySound[1].play();
 
 }
 
