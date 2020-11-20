@@ -8,10 +8,13 @@ let sketchStarted = false;
 let mySound = [];
 
 
+
 function preload() {
   soundFormats("wav")
-  mySound = loadSound("assets/1");
-  mySound = loadSound("assets/2");
+
+  mySound[0] = loadSound("assets/1");
+  mySound[1] = loadSound("assets/2");
+
 }
 
 function setup() {
@@ -22,19 +25,19 @@ function setup() {
   cnv.position(x, y);
   angleMode(DEGREES);
 
-//This section is meant to activate the voice recordings
-  var drawButton = createButton("Voice Line 1")
-  drawButton.mousePressed(voiceLine1);
-  drawButton.position(350, 300)
+  //This section is meant to activate the voice recordings
+  let drawButton1 = createButton("Voice Line 1")
+  drawButton1.mousePressed(voiceLine1);
+  drawButton1.position(350, 300)
 
-  var drawButton = createButton("Voice Line 2")
-  drawButton.mousePressed(voiceLine1);
-  drawButton.position(350, 350)
+  let drawButton2 = createButton("Voice Line 2")
+  drawButton2.mousePressed(voiceLine2);
+  drawButton2.position(350, 350)
 
-//This section allows the canvas to initialize
-  var drawButton = createButton("CLICK HERE TO INITIATE THE AI")
-  drawButton.mousePressed(startSketch);
-  drawButton.position(300, 650);
+  //This section allows the canvas to initialize
+  let drawButton3 = createButton("CLICK HERE TO INITIATE THE AI")
+  drawButton3.mousePressed(startSketch);
+  drawButton3.position(300, 650);
 
 }
 
@@ -48,7 +51,7 @@ function startSketch() {
 
 function draw() {
 
-  if(sketchStarted) {
+  if (sketchStarted) {
 
     micLevel = mic.getLevel(0.9);
 
@@ -71,7 +74,28 @@ function draw() {
 
 function voiceLine1() {
 
-  mySound.play();
+  for (let i = 0; i < mySound.length; i++) {
+    if (mySound[i].isPlaying()) {
+      mySound[i].stop();
+    }
+  }
+
+  mySound[0].play();
+
+
+}
+
+function voiceLine2() {
+
+
+  for (let i = 0; i < mySound.length; i++) {
+    if (mySound[i].isPlaying()) {
+      mySound[i].stop();
+    }
+  }
+
+  mySound[1].play();
+
 
 }
 
@@ -159,8 +183,8 @@ function drawEyes() {
 
   //EYES
   fill(
-191, 255, 255
-);
+    191, 255, 255
+  );
   ellipse(width * .35, width * .45, width * .15);
   ellipse(width * .65, width * .45, width * .15);
 
