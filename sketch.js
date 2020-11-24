@@ -7,6 +7,8 @@ let bamYes = false;
 let sketchStarted = false;
 let mySound = [];
 let drawButton = [];
+//This section is part of the chatbot
+let num = 37555;
 
 // mySound = [1, ,2]
 
@@ -24,6 +26,19 @@ function setup() {
   var y = (windowHeight - height) / 2;
   cnv.position(x, y);
   angleMode(DEGREES);
+
+//This section stores the elements for the chatbot
+
+  let bot = new RiveScript();
+  bot.loadFile('brain.rive', brainReady, brainError);
+
+  let button = select('#submit');
+  let user_input = select('#user_input');
+  let output = select('#output');
+
+  button.mousePressed(chat);
+
+
 
 //This section is meant to activate the voice recordings
   drawButton[0] = createButton("Activate Phase 1")
@@ -45,6 +60,23 @@ function setup() {
 
 }
 
+//This section stores the functions for the chatbot
+
+function chat() {
+  let input = user_input.value();
+  let reply = bot.reply('local-user', input);
+  output.html(reply);
+}
+
+function brainReady() {
+  console.log('Chatbot Ready!')
+  bot.sortReplies();
+}
+
+function brainError() {
+  console.log('Chatbot Error!')
+}
+
 function startSketch() {
 
   mic = new p5.AudioIn()
@@ -61,7 +93,7 @@ function draw() {
 
     micInput = map(micLevel, 0, .01, 0, 2.5);
 
-    background(225);
+    background(222, 222, 222);
 
     drawBasicShape();
     drawMask(micInput); // parameter = vertical movement
