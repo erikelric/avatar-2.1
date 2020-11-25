@@ -11,99 +11,95 @@
   <title>A I</title>
   <script src="three.r95.min.js"></script>
   <script src="vanta.net.min.js"></script>
-  <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
-   data-auto-a11y="true"></script>
-    <script src="p5.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-a11y="true"></script>
+  <script src="p5.js"></script>
 
-    <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
-    <script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
-    <script src="p5.sound.min.js"></script>
-    <!-- <script src="path/to/p5.sound.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8">
+  <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
 
-    <style type="text/css">
+  <style type="text/css">
+    #interactive {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      z-index: -999;
+    }
 
-      #interactive {
-        width: 100vw;
-        height:100vh;
-        position: fixed;
-        z-index: -999;
-      }
+    section {
+      /* border: 10px solid gray; */
+      height: 90vh;
 
-      section{
-        /* border: 10px solid gray; */
-        height: 90vh;
-
-        display: flex;
-        align-items:center;
-        justify-content: center;
-      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
 
-      .container{
-        border: 10px solid gray;
-        max-width: 700px;
-        width: 30%;
-        margin: auto;
+    .container {
+      border: 10px solid gray;
+      max-width: 700px;
+      width: 30%;
+      margin: auto;
 
-        height: 50vh;
-        display: flex;
-        align-items:center;
-        justify-content: center;
-      }
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
 
-    </style>
+</head>
 
-  </head>
+<body>
 
-  <body>
-
-    <div id="vantaBirds"></div>
+  <div id="vantaBirds"></div>
 
   <script src="sketch.js"></script>
 
-	<p>
-		say: <input id="user_input" />
-		<button id="submit">submit</button>
-	</p>
+  <p>
+    say: <input id="user_input" />
+    <button id="submit">submit</button>
+  </p>
 
-	<p>
-		reply: <span id="output"></span>
-	</p>
+  <p>
+    reply: <span id="output"></span>
+  </p>
 
-<section>
+  <section>
 
-  <div class="container">
-    <center>
-    <h1>AVATAR</h1>
-    <br><br>
-    <h3>The idea behind this project is to simulate a personal AI in which you can interact with. The concept plays with the idea that in the future it is possible to have an intuitive personal assistant that can react and interact with the user. Thus, you can have a personal avatar that you can relate to and reflect an aspect of you.
-    <br><br> By using your microphone you can observe the AI speak, and by clicking the forehead you can change the expression.</h3>
-    </center>
+    <div class="container">
+      <center>
+        <h1>AVATAR</h1>
+        <br><br>
+        <h3>The idea behind this project is to simulate a personal AI in which you can interact with. The concept plays with the idea that in the future it is possible to have an intuitive personal assistant that can react and interact with the user.
+          Thus, you can have a personal avatar that you can relate to and reflect an aspect of you.
+          <br><br> By using your microphone you can observe the AI speak, and by clicking the forehead you can change the expression.
+        </h3>
+      </center>
 
-  </div>
-</section>
+    </div>
+  </section>
 
   <script>
-  VANTA.NET({
-  el: "#vantaBirds",
-  mouseControls: true,
-  touchControls: true,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  scale: 1.00,
-  scaleMobile: 1.00,
-  color: 0x939393,
-  backgroundColor: 0xdedede,
-  points: 9.00,
-  maxDistance: 26.00,
-  spacing: 18.00
-  })
+    VANTA.NET({
+      el: "#vantaBirds",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x939393,
+      backgroundColor: 0xdedede,
+      points: 9.00,
+      maxDistance: 26.00,
+      spacing: 18.00
+    })
   </script>
 
 </body>
+
 </html>

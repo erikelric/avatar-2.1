@@ -29,8 +29,20 @@ function setup() {
 
 //This section stores the elements for the chatbot
 
-  let bot = new RiveScript();
-  bot.loadFile('brain.rive', brainReady, brainError);
+let bot = new RiveScript();
+bot.loadFile('brain.rive', brainReady, brainError);
+
+function brainReady() {
+  console.log('Chatbot ready!');
+  bot.sortReplies();
+  let num = floor(random(10)) + 1;
+  console.log(num);
+  let reply = bot.reply('local-user', 'set ' + num);
+}
+
+function brainError() {
+  console.log('Chatbot error!');
+}
 
   let button = select('#submit');
   let user_input = select('#user_input');
@@ -38,7 +50,11 @@ function setup() {
 
   button.mousePressed(chat);
 
-
+  function chat() {
+    let input = user_input.value();
+    let reply = bot.reply('local-user', input);
+    output.html(reply);
+  }
 
 //This section is meant to activate the voice recordings
   drawButton[0] = createButton("Activate Phase 1")
@@ -58,23 +74,6 @@ function setup() {
   drawButton[10].mousePressed(startSketch);
   drawButton[10].position(300, 650);
 
-}
-
-//This section stores the functions for the chatbot
-
-function chat() {
-  let input = user_input.value();
-  let reply = bot.reply('local-user', input);
-  output.html(reply);
-}
-
-function brainReady() {
-  console.log('Chatbot Ready!')
-  bot.sortReplies();
-}
-
-function brainError() {
-  console.log('Chatbot Error!')
 }
 
 function startSketch() {
