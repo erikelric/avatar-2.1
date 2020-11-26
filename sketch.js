@@ -27,22 +27,22 @@ function setup() {
   cnv.position(x, y);
   angleMode(DEGREES);
 
-//This section stores the elements for the chatbot
+  //This section stores the elements for the chatbot
 
-let bot = new RiveScript();
-bot.loadFile('brain.rive', brainReady, brainError);
+  let bot = new RiveScript();
+  bot.loadFile('brain.rive', brainReady, brainError);
 
-function brainReady() {
-  console.log('Chatbot ready!');
-  bot.sortReplies();
-  let num = floor(random(10)) + 1;
-  console.log(num);
-  let reply = bot.reply('local-user', 'set ' + num);
-}
+  function brainReady() {
+    console.log('Chatbot ready!');
+    bot.sortReplies();
+    let num = floor(random(10)) + 1;
+    console.log(num);
+    let reply = bot.reply('local-user', 'set ' + num);
+  }
 
-function brainError() {
-  console.log('Chatbot error!');
-}
+  function brainError() {
+    console.log('Chatbot error!');
+  }
 
   let button = select('#submit');
   let user_input = select('#user_input');
@@ -56,7 +56,7 @@ function brainError() {
     output.html(reply);
   }
 
-//This section is meant to activate the voice recordings
+  //This section is meant to activate the voice recordings
   drawButton[0] = createButton("Activate Phase 1")
   drawButton[0].mousePressed(voiceLine1);
   drawButton[0].position(350, 300);
@@ -69,7 +69,7 @@ function brainError() {
   drawButton[2].mousePressed(voiceLine3);
   drawButton[2].position(350, 400);
 
-//This section allows the canvas to initialize
+  //This section allows the canvas to initialize
   drawButton[10] = createButton("CLICK HERE TO INITIATE THE AI")
   drawButton[10].mousePressed(startSketch);
   drawButton[10].position(300, 650);
@@ -86,7 +86,7 @@ function startSketch() {
 
 function draw() {
 
-  if(sketchStarted) {
+  if (sketchStarted) {
 
     micLevel = mic.getLevel(0.9);
 
@@ -110,7 +110,7 @@ function draw() {
 //This section is where the voice lines are stored as functions
 function voiceLine1() {
 
-  if(!mySound[0].isPlaying()){
+  if (!mySound[0].isPlaying()) {
     mySound[0].play();
     drawButton[0].html("Deactivate")
   } else {
@@ -122,13 +122,13 @@ function voiceLine1() {
 
 function voiceLine2() {
 
-// for (let i = 0; i <mySound.length; i++) {
-//   if (mySound[i].isPLaying()){
-//     mySound[i].stop();
-//   }
-// }
+  // for (let i = 0; i <mySound.length; i++) {
+  //   if (mySound[i].isPLaying()){
+  //     mySound[i].stop();
+  //   }
+  // }
 
-  if(!mySound[1].isPlaying()){
+  if (!mySound[1].isPlaying()) {
     mySound[1].play();
     drawButton[1].html("Deactivate")
   } else {
@@ -139,7 +139,7 @@ function voiceLine2() {
 
 function voiceLine3() {
 
-  if(!mySound[2].isPlaying()){
+  if (!mySound[2].isPlaying()) {
     mySound[2].play();
     drawButton[2].html("Deactivate")
   } else {
@@ -233,8 +233,8 @@ function drawEyes() {
 
   //EYES
   fill(
-191, 255, 255
-);
+    191, 255, 255
+  );
   ellipse(width * .35, width * .45, width * .15);
   ellipse(width * .65, width * .45, width * .15);
 
