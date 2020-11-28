@@ -78,10 +78,19 @@ function setup() {
 
 function startSketch() {
 
+
   mic = new p5.AudioIn()
   mic.start();
 
   sketchStarted = true;
+
+  if (!mySound[1].isPlaying()) {
+    mySound[1].play();
+    drawButton[1].html("Deactivate")
+  } else {
+    mySound[1].pause();
+    drawButton[1].html("Activate Phase 2")
+  }
 }
 
 function draw() {
