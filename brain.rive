@@ -1,15 +1,32 @@
 // Chatbot's brain
 ! version = 2.0
 
-// ! var num = 37555
-
-+ set #
-- <set num=<star>>
-
-+ #
-* <star> > <get num> => pick a lower number
-* <star> < <get num> => pick a higher number
-* <star> == <get num> => you got it!
+//! sub who's = who is
 
 + *
-- Guess a number between 1 and 10
+- try saying hi
+
++ [*] hi [*]
+- Hello what is your name?
+
++ *
+% hello what is your name
+- <star1> nice to meet you - how are you?
+
++ *
+% * nice to meet you how are you?
+- really? tell me more
+
++ *
+% really? tell me more
+- that sounds interesting - can I tell you something that could probably cheer you up?
+
++ [*] no [*]
+- ok - just remember that I am here if you need me
+
++ [*] yes [*]
+- be still - sad heart - and cease repining - under the clouds - is the sun still shining
+
++ *
+% be still - sad heart - and cease repining - under the clouds is - the sun still shining
+- no problem

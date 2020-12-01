@@ -19,6 +19,7 @@
   <!-- <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script> -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="p5.sound.min.js"></script>
+  <script src="p5.speech.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta charset="utf-8">
 
@@ -61,14 +62,16 @@
 
   <script src="sketch.js"></script>
 
+<center>
   <p>
-    say: <input id="user_input" />
+    Tell me: <input id="user_input" />
     <button id="submit">submit</button>
   </p>
 
-  <p>
+  <!-- <p>
     reply: <span id="output"></span>
-  </p>
+  </p> -->
+</center>
 
   <section>
 
@@ -80,9 +83,11 @@
           Thus, you can have a personal avatar that you can relate to and reflect an aspect of you.
           <br><br> By using your microphone you can observe the AI speak, and by clicking the forehead you can change the expression.
         </h3>
+
       </center>
 
     </div>
+
   </section>
 
   <script>

@@ -8,7 +8,6 @@ let sketchStarted = false;
 let mySound = [];
 let drawButton = [];
 //This section is part of the chatbot
-let num = 37555;
 
 // mySound = [1, ,2]
 
@@ -27,10 +26,20 @@ function setup() {
   cnv.position(x, y);
   angleMode(DEGREES);
 
+  let div = createDiv('').size(10, 10);
+  div.center();
+
   //This section stores the elements for the chatbot
+
+  let speech = new p5.Speech();
+  speech.setVoice('Moira');
 
   let bot = new RiveScript();
   bot.loadFile('brain.rive', brainReady, brainError);
+
+function voiceReady(){
+  console.log(speech.voices);
+}
 
   function brainReady() {
     console.log('Chatbot ready!');
@@ -53,21 +62,22 @@ function setup() {
   function chat() {
     let input = user_input.value();
     let reply = bot.reply('local-user', input);
-    output.html(reply);
+    speech.speak(reply);
+    // output.html(reply);
   }
 
   //This section is meant to activate the voice recordings
-  drawButton[0] = createButton("Activate Phase 1")
-  drawButton[0].mousePressed(voiceLine1);
-  drawButton[0].position(350, 300);
-
-  drawButton[1] = createButton("Activate Phase 2")
-  drawButton[1].mousePressed(voiceLine2);
-  drawButton[1].position(350, 350);
-
-  drawButton[2] = createButton("Activate Phase 3")
-  drawButton[2].mousePressed(voiceLine3);
-  drawButton[2].position(350, 400);
+  // drawButton[0] = createButton("Activate Phase 1")
+  // drawButton[0].mousePressed(voiceLine1);
+  // drawButton[0].position(350, 300);
+  //
+  // drawButton[1] = createButton("Activate Phase 2")
+  // drawButton[1].mousePressed(voiceLine2);
+  // drawButton[1].position(350, 350);
+  //
+  // drawButton[2] = createButton("Activate Phase 3")
+  // drawButton[2].mousePressed(voiceLine3);
+  // drawButton[2].position(350, 400);
 
   //This section allows the canvas to initialize
   drawButton[10] = createButton("CLICK HERE TO INITIATE THE AI")
@@ -84,12 +94,12 @@ function startSketch() {
 
   sketchStarted = true;
 
-  if (!mySound[1].isPlaying()) {
-    mySound[1].play();
-    drawButton[1].html("Deactivate")
+  if (!mySound[0].isPlaying()) {
+    mySound[0].play();
+    drawButton[0].html("Deactivate")
   } else {
-    mySound[1].pause();
-    drawButton[1].html("Activate Phase 2")
+    mySound[0].pause();
+    drawButton[0].html("Activate Phase 1")
   }
 }
 
