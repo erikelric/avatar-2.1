@@ -7,6 +7,7 @@ let bamYes = false;
 let sketchStarted = false;
 let mySound = [];
 let drawButton = [];
+let speech = new p5.Speech();
 //This section is part of the chatbot
 
 // mySound = [1, ,2]
@@ -31,15 +32,12 @@ function setup() {
 
   //This section stores the elements for the chatbot
 
-  let speech = new p5.Speech();
-  speech.setVoice('Moira');
+
+  speech.setVoice('');
+  console.log(speech.listVoices());
 
   let bot = new RiveScript();
   bot.loadFile('brain.rive', brainReady, brainError);
-
-function voiceReady(){
-  console.log(speech.voices);
-}
 
   function brainReady() {
     console.log('Chatbot ready!');
@@ -62,6 +60,8 @@ function voiceReady(){
   function chat() {
     let input = user_input.value();
     let reply = bot.reply('local-user', input);
+    speech.setRate();
+    speech.setPitch(.02);
     speech.speak(reply);
     // output.html(reply);
   }
