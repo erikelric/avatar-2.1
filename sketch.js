@@ -60,8 +60,8 @@ function setup() {
   function chat() {
     let input = user_input.value();
     let reply = bot.reply('local-user', input);
-    speech.setRate();
-    speech.setPitch(.02);
+    speech.setRate(.5);
+    speech.setPitch(.01);
     speech.speak(reply);
     // output.html(reply);
   }
