@@ -15,11 +15,21 @@
 
 + *
 % * nice to meet you how are you?
+- try saying Im good or Im sad
+
++ [*] im good [*]
+- I am glad to hear that
+
++ [*] im sad [*]
 - really? tell me more
 
 + *
 % really? tell me more
 - that sounds interesting - can I tell you something that could probably cheer you up?
+
++ *
+% that sounds interesting can I tell you something that could probably cheer you up?
+- try saying yes or no
 
 + [*] no [*]
 - ok - just remember that I am here if you need me
