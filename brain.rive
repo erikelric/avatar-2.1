@@ -16,12 +16,20 @@
 
 + *
 % * nice to meet you how are you?
-- you could say Im good or Im sad
+- you could say Im good or Im ok
 
 + [*] im good [*]
-- I am glad to hear that
+- I am glad to hear that - tell me more about it
 
-+ [*] im sad [*]
++ *
+% I am glad to hear that - tell me more about it
+- it looks like things are going great then - what are your plans for today?
+
++ *
+% it looks like things are going great then - what are your plans for today?
+- that sounds great - I wish I could join XD
+
++ [*] im ok [*]
 - really? tell me more
 
 + *
