@@ -2,6 +2,7 @@
 ! version = 2.0
 
 //! sub who's = who is
+//! sub thanks = thank you
 
 + *
 - try saying hi
@@ -15,7 +16,7 @@
 
 + *
 % * nice to meet you how are you?
-- try saying Im good or Im sad
+- you could say Im good or Im sad
 
 + [*] im good [*]
 - I am glad to hear that
@@ -25,18 +26,19 @@
 
 + *
 % really? tell me more
-- that sounds interesting - can I tell you something that could probably cheer you up?
-
-+ *
-% that sounds interesting can I tell you something that could probably cheer you up?
-- try saying yes or no
+- that sounds interesting - can I tell you something that could probably cheer you up? - you can say yes or no
 
 + [*] no [*]
 - ok - just remember that I am here if you need me
 
 + [*] yes [*]
-- be still - sad heart - and cease repining - under the clouds - is the sun still shining
+- things may not be going the way you want them to be - but there is always hope that things can get better - do you want to know something? - you can say sure or nope
 
-+ *
-% be still - sad heart - and cease repining - under the clouds is - the sun still shining
-- no problem
++ [*] nope [*]
+- ok - I will be here if you need me
+
++ [*] sure [*]
+- we may not be able to go back in time - but moving forward is always a good thing to do
+
++ [*] thanks [*]
+- I am glad a can be of help
